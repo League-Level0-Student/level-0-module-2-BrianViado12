@@ -6,6 +6,7 @@ package random;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -77,10 +78,11 @@ public class RockPaperScissors extends JPanel implements ActionListener{
         //1. Run the program and play many rounds of Rock Paper Scissors. Does the computer always choose the same thing?
 
         //2. Change the value of opponentSelection to be a random number between 0 and 2;
-	//   Don't forget to create a Random object.
-	    
+	//   Don't forget to create a Random object
+    		Random hand = new Random();
+	    int opponentSelection = hand.nextInt(2);
         //2. Change the value of opponentSelection to be a random number between 0 and 2; 
-        int opponentSelection = 0;
+        int opponentSelection1 = Random();
         
         //3. Run the program again. Is the result different?
  
@@ -93,20 +95,25 @@ public class RockPaperScissors extends JPanel implements ActionListener{
         }
         
         JOptionPane.showMessageDialog(null, "You chose: " + convertSelection(selection) + ".\n"
-                    + "The computer chose: " + convertSelection(opponentSelection) + ".\n");
+                    + "The computer chose: " + convertSelection(opponentSelection1) + ".\n");
         
-        if(selection == opponentSelection){
+        if(selection == opponentSelection1){
             JOptionPane.showMessageDialog(null, "No Winner.  Play again.");
-        }else if((selection == 0 && opponentSelection == 2) || 
-                 (selection == 1 && opponentSelection == 0) ||
-                 (selection == 2 && opponentSelection == 1)){
+        }else if((selection == 0 && opponentSelection1 == 2) || 
+                 (selection == 1 && opponentSelection1 == 0) ||
+                 (selection == 2 && opponentSelection1 == 1)){
             JOptionPane.showMessageDialog(null, "You Win!");
         }else{
             JOptionPane.showMessageDialog(null, "You Lose!");
         }
     }
     
-    private String convertSelection(int s){
+    private int Random() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private String convertSelection(int s){
        if (s==0)
             return "ROCK";
        else if (s==1)

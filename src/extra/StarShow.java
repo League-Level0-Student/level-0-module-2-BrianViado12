@@ -11,24 +11,28 @@ public class StarShow {
 	
 	Robot robot = new Robot("batman");
 	
-	void makeStars() {
+	void makeStars() throws InterruptedException {
 		
 		drawStar(150);	//5. delete this line. you will draw the star again in step 8.
 		// 13. Set the speed to 8
 		robot.setSpeed(8);
 		// 6. Make a variable to hold the X position of the Robot and set it to 10
-		int star = 10;
+		int x = 10;
 		// 7. Make a variable to hold the Y position of the Robot and set it to 600
-		int sol = 600;
+		int y = 600;
 		// 8. Make a variable to hold the star size and set it to 25
 		int starsize = 25; 
 		// 12. Repeat the steps #19 to #18, 30 times
 		for (int i = 0; i < 30; i++) {
 			robot.setPenWidth(i);
-			robot.setX(star);
-			robot.setY(sol);
+			robot.setX(x);
+			robot.setY(y);
 			drawStar(starsize);
-			
+			x=x+starsize;
+			y=y+starsize;
+			starsize=starsize+20;
+			robot.turn(12);
+			robot.setRandomPenColor();
 		}
 			// 19. Set the pen width to i 
 			
@@ -50,18 +54,21 @@ public class StarShow {
 
 	}
 
-	private void drawStar(int starSize) {
+	private void drawStar(int starSize) throws InterruptedException {
 		// 2. Put the robot's pen down
-
+		robot.penDown();
 		// 4. Repeat both commands 5 times. See Figure 1 at http://bit.ly/star-show
-
+				for (int i = 0; i < 5; i++) {
+					robot.move(starSize);
+					robot.turn(144);
+				}
 			// 1. Move the robot the distance of the starSize variable
 				
 			// 3. Turn the robot 144 degrees
 			
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException{
 		new StarShow().makeStars();
 	}
 }
