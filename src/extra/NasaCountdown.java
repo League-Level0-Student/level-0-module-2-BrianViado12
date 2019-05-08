@@ -17,13 +17,17 @@ import javax.swing.JOptionPane;
 public class NasaCountdown {
 	public static void main(String[] args) throws InterruptedException {
 		// 2. Use a pop-up to ask the user where to start counting from
-		JOptionPane.showInputDialog("NASA timer countdown");
+		String count = JOptionPane.showInputDialog("NASA timer countdown");
+		int answer = Integer.parseInt(count);
 		// 3. Change the countdown to use the new starting point
-		for (int i = 0; i < args.length; i++) {
-			
-		}
+		for (int i = answer; i >= 0; i--) {
+			System.out.println(i);
+			speak(""+i);
+			Thread.sleep(1000);
+			}
+			speak("Blastoff");
 		// 1. Print a countdown from 10 to 0 on the console
-	
+		
 			// 4. Use the speak method to hear the countdown.
 		
 			// 6. Use the following code to make the program wait one second for each number: Thread.sleep(1000);
