@@ -1,3 +1,5 @@
+
+
 package methods;
 
 import java.applet.AudioClip;
@@ -38,7 +40,9 @@ public class AnimalFarm {
 			 if(guess.equals("llama")) {
 				 playLlama();
 			 }
-		/* 2. Make it so that the user can keep entering new animals. */
+
+			 if(guess.equals(""))
+			 /* 2. Make it so that the user can keep entering new animals. */
 	}
 	}
 
